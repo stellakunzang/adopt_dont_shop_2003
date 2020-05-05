@@ -19,3 +19,7 @@
 .byebug_history
 .env
 .env
+
+# Ignore test-related files
+/coverage.data
+/coverage/
