@@ -4,6 +4,8 @@
   <h3><a href="/shelters/<%= shelter.id %>"><%= shelter.name %></a></h3>
   <p><%= shelter.address %></p>
   <p><%= shelter.city %>, <%= shelter.state %> <%= shelter.zip %></p>
+  <a href="/shelters/<%= shelter.id %>/edit">Edit <%= shelter.name %> Information</a>
+  <br><a href="/shelters/<%= shelter.id %>" data-method="DELETE">Delete <%= shelter.name %></a></br>
 <% end %>
 
-<a href="/shelters/new">New Shelter</a>
+<br><a href="/shelters/new">New Shelter</a></br>

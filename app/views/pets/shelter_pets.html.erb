@@ -1,0 +1,12 @@
+<h2>Pets at Shelter</h2>
+<% @pets.each do |pet| %>
+  <h3><%= pet.name %></h3>
+  <img src= <%= pet.image %>>
+  <p><%= "Age: #{pet.approximate_age}" %></p>
+  <p><%= "Sex: #{pet.sex}" %></p>
+  <p><%= "Adoption Status: #{pet.adoption_status}" %></p>
+  <p><a href="/pets/<%= pet.id %>/edit">Edit Pet Information</a>
+  <p><a href="/pets/<%= pet.id %>" data-method="DELETE">Delete Pet</a></p>
+<% end %>
+
+<a href="/shelters/<%= @shelter_id %>/pets/new">Create Pet</a>
