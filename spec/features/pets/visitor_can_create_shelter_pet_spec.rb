@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe "shelter pet create", type: :feature do
   it "can create new shelter pets" do
-    pet_1 = Pet.create(image: "???", name: "Donald Duck", approximate_age: "8", sex: "male", name_of_shelter: "Happy Puppies")
     shelter_1 = Shelter.create(name: "Happy Puppies", address: "55 Street st", city: "Newark", state: "NK", zip: "80304")
+    pet_1 = Pet.create(image: "???", name: "Donald Duck", approximate_age: "8", sex: "male", shelter_id: shelter_1.id)
     visit "/shelters/#{shelter_1.id}/pets"
     click_link "Create Pet"
     expect(current_path).to eq("/shelters/#{shelter_1.id}/pets/new")

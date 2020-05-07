@@ -4,12 +4,12 @@ class PetsController < ApplicationController
   end
 
   def new
+    @shelter_id = params[:id]
   end
 
   def shelter_pets
-    @shelter = Shelter.find(params[:shelter_id])
-    @shelter_name = shelter.name
-    @pets = Pet.where(name_of_shelter: @shelter_name)
+    @shelter_id = params[:id]
+    @pets = Pet.where(shelter_id: @shelter_id)
   end
 
   def show
@@ -23,10 +23,11 @@ class PetsController < ApplicationController
       description: params[:pet][:description],
       approximate_age: params[:pet][:approximate_age],
       sex: params[:pet][:sex],
-      status: "adoptable"
+      # status
+      shelter_id: params[:shelter_id]
       })
     pet.save
-    redirect_to "/shelters/#{shelter_1.id}/pets"
+    redirect_to "/shelters/#{params[:shelter_id]}/pets"
   end
 
   def edit
@@ -34,15 +35,16 @@ class PetsController < ApplicationController
   end
 
   def update
-    pet = Pet.find(params[:id])
-    pet.update({
+    @pet = Pet.find(params[:id])
+    @pet.update({
       image: params[:pet][:image],
       name: params[:pet][:name],
       description: params[:pet][:description],
       approximate_age: params[:pet][:approximate_age],
-      sex: params[:pet][:sex]
+      sex: params[:pet][:sex],
+      shelter_id: params[:pet][:shelter_id]
       })
-    redirect_to "/pets/#{pet.id}"
+    redirect_to "/pets/#{@pet.id}"
   end
 
   def destroy

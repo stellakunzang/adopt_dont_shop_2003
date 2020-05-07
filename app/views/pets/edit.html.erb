@@ -2,7 +2,7 @@
   <input type="hidden" name="authenticity_token" value="<% form_authenticity_token %>">
     <input type="hidden" name="_method" value="PATCH" />
     <h2>Update Pet:</h2>
-    <input type='image' name='pet[image]' value="<%= @pet.image %>"/><br/>
+    Image Url:<input type='url' name='pet[image]' value="<%= @pet.image %>"/><br/>
     Name:<input type='text' name='pet[name]' value="<%= @pet.name %>"/><br/>
     Description:<input type='text' name='pet[description]' value="<%= @pet.description %>"/><br/>
     Approximate Age:<input type='text' name='pet[approximate_age]' value="<%= @pet.approximate_age %>"/><br/>
