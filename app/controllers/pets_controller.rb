@@ -35,8 +35,8 @@ class PetsController < ApplicationController
   end
 
   def update
-    @pet = Pet.find(params[:id])
-    @pet.update({
+    pet = Pet.find(params[:id])
+    pet.update({
       image: params[:pet][:image],
       name: params[:pet][:name],
       description: params[:pet][:description],
@@ -44,7 +44,7 @@ class PetsController < ApplicationController
       sex: params[:pet][:sex],
       shelter_id: params[:pet][:shelter_id]
       })
-    redirect_to "/pets/#{@pet.id}"
+    redirect_to "/pets/#{pet.id}"
   end
 
   def destroy
