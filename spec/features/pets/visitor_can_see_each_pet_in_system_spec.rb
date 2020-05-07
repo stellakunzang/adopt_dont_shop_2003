@@ -8,6 +8,6 @@ RSpec.describe "pets index page", type: :feature do
     expect(page).to have_content(pet_1.name)
     expect(page).to have_content(pet_1.approximate_age)
     expect(page).to have_content(pet_1.sex)
-    expect(page).to have_content(pet_1.name_of_shelter)
+    expect(page).to have_content(pet_1.shelter.name)
   end
 end
