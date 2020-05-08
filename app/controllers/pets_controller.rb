@@ -7,11 +7,6 @@ class PetsController < ApplicationController
     @shelter_id = params[:id]
   end
 
-  def shelter_pets
-    @shelter_id = params[:id]
-    @pets = Pet.where(shelter_id: @shelter_id)
-  end
-
   def show
     @pet = Pet.find(params[:id])
   end
@@ -23,11 +18,10 @@ class PetsController < ApplicationController
       description: params[:pet][:description],
       approximate_age: params[:pet][:approximate_age],
       sex: params[:pet][:sex],
-      # status
-      shelter_id: params[:shelter_id]
+      shelter_id: params[:id]
       })
     pet.save
-    redirect_to "/shelters/#{params[:shelter_id]}/pets"
+    redirect_to "/shelters/#{params[:id]}/pets"
   end
 
   def edit
