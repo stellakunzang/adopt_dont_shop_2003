@@ -13,8 +13,8 @@ Rails.application.routes.draw do
   get '/shelters/:id/pets', to: 'shelter_pets#index'
   get '/shelters/:id/pets/new', to: 'pets#new'
   get '/pets/:id', to: 'pets#show'
-  get '/pets/:id/edit', to: 'pets#edit'
   post '/shelters/:id/pets', to: 'pets#create'
+  get '/pets/:id/edit', to: 'pets#edit'
   patch '/pets/:id', to: 'pets#update'
   delete '/pets/:id', to: 'pets#destroy'
 end
