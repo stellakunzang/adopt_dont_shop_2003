@@ -11,7 +11,7 @@ RSpec.describe "shelter edit page" do
 
     expect(current_path).to eq("/shelters/#{shelter_1.id}/edit")
 
-    fill_in "shelter[name]", with: "The Happy Puppies Shelter"
+    fill_in "name", with: "The Happy Puppies Shelter"
     click_button "Submit"
 
     expect(current_path).to eq("/shelters/#{shelter_1.id}")
