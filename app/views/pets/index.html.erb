@@ -5,7 +5,7 @@
   <img src= <%= pet.image %>>
   <p><%= "Age: #{pet.approximate_age}" %></p>
   <p><%= "Sex: #{pet.sex}" %></p>
-  <p><%= "Current Shelter: #{pet.shelter.name}" %></p>
+  Current Shelter: <a href="/shelters/<%= pet.shelter.id %>"><%= pet.shelter.name %></a>
   <p><a href="/pets/<%= pet.id %>/edit">Edit Pet Information</a>
   <br><a href="/pets/<%= pet.id %>" data-method="DELETE">Delete <%= pet.name %></a></br>
 <% end %>
