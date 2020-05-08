@@ -1,10 +1,16 @@
-<form action="/shelters/<%= @shelter_id %>/pets" method="post">
-  <input type="hidden" name="authenticity_token" value="<% form_authenticity_token %>">
-  <h2>Add a new pet:</h2>
-  Name:<input type='text' name='pet[name]'/><br/>
-  Image URL:<input type='url' name='pet[image]'/><br/>
-  Description:<input type='text' name='pet[description]'/><br/>
-  Age:<input type='text' name='pet[approximate_age]'/><br/>
-  Sex:<input type='text' name='pet[sex]'/><br/>
-  <input type='submit' value='Create Pet'/>
-</form>
+<h2>Add a New Pet:</h2>
+<section class="form">
+  <%= form_tag("/shelters/#{@shelter_id}/pets", method: "patch") do %>
+    <%= label_tag(:image, "Image: ") %>
+    <%= text_field_tag(:image) %><br />
+    <%= label_tag(:name, "Name: ") %>
+    <%= text_field_tag(:name) %><br />
+    <%= label_tag(:description, "Description: ") %>
+    <%= text_field_tag(:description) %><br />
+    <%= label_tag(:approximate_age, "Approximate Age: ") %>
+    <%= text_field_tag(:approximate_age) %><br />
+    <%= label_tag(:sex, "Sex: ") %>
+    <%= text_field_tag(:sex) %><br />
+    <%= submit_tag("Create Pet") %>
+  <% end %>
+</section>
