@@ -15,7 +15,7 @@ RSpec.describe "pet edit page" do
 
     expect(page).to have_content("Image")
     expect(page).to have_content("Description")
-    expect(page).to have_content("Approximate age")
+    expect(page).to have_content("Approximate Age")
     expect(page).to have_content("Sex")
     fill_in "name", with: "Kun Gyi Ngo Woah"
 

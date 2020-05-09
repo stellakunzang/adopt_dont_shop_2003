@@ -9,11 +9,11 @@ RSpec.describe "shelter new page" do
 
     expect(current_path).to eq("/shelters/new")
 
-    fill_in "shelter[name]", with: "Happy Puppies"
-    fill_in "shelter[address]", with: "55 Street St."
-    fill_in "shelter[city]", with: "Danger Mountain"
-    fill_in "shelter[state]", with: "UT"
-    fill_in "shelter[zip]", with: "80304"
+    fill_in "name", with: "Happy Puppies"
+    fill_in "address", with: "55 Street St."
+    fill_in "city", with: "Danger Mountain"
+    fill_in "state", with: "UT"
+    fill_in "zip", with: "80304"
 
     click_button "Create Shelter"
 
