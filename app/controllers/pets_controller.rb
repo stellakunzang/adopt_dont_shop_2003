@@ -13,11 +13,11 @@ class PetsController < ApplicationController
 
   def create
     pet = Pet.new({
-      image: params[:pet][:image],
-      name: params[:pet][:name],
-      description: params[:pet][:description],
-      approximate_age: params[:pet][:approximate_age],
-      sex: params[:pet][:sex],
+      image: params[:image],
+      name: params[:name],
+      description: params[:description],
+      approximate_age: params[:approximate_age],
+      sex: params[:sex],
       shelter_id: params[:id]
       })
     pet.save

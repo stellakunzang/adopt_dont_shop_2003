@@ -1,6 +1,6 @@
 <h2>Add a New Pet:</h2>
 <section class="form">
-  <%= form_tag("/shelters/#{@shelter_id}/pets", method: "patch") do %>
+  <%= form_tag("/shelters/#{@shelter_id}/pets", method: "post") do %>
     <%= label_tag(:image, "Image: ") %>
     <%= text_field_tag(:image) %><br />
     <%= label_tag(:name, "Name: ") %>

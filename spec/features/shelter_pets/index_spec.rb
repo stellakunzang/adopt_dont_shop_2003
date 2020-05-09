@@ -51,6 +51,17 @@ RSpec.describe "shelter pet index" do
     click_link "Kunga"
 
     expect(current_path).to eq("/pets/#{pet_1.id}")
-  end 
+  end
 
+  it "can see a count of the number of pets at this shelter" do
+    shelter_1 = Shelter.create(name: "Happy Puppies", address: "55 Street St", city: "Danger Mountain", state: "UT", zip: "80304")
+
+    pet_1 = Pet.create(image: "image.jpeg", name: "Kunga", approximate_age: "1", sex: "male", shelter_id: shelter_1.id)
+
+    pet_2 = Pet.create(image: "image.jpeg", name: "Honey Pie", approximate_age: "11", sex: "female", shelter_id: shelter_1.id)
+
+    visit "/shelters/#{shelter_1.id}/pets"
+
+    expect(page).to have_content("Pet Count = 2")
+  end
 end
