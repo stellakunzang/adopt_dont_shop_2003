@@ -11,11 +11,11 @@ RSpec.describe "shelter pet new page" do
 
     expect(current_path).to eq("/shelters/#{shelter_1.id}/pets/new")
 
-    fill_in "image", with: "image.jpeg"
-    fill_in "name", with: "Kunga"
-    fill_in "description", with: "Certified cutie patootie"
-    fill_in "approximate_age", with: "1"
-    fill_in "sex", with: "male"
+    fill_in :image, with: "image.jpeg"
+    fill_in :name, with: "Kunga"
+    fill_in :description, with: "Certified cutie patootie"
+    fill_in :approximate_age, with: "1"
+    fill_in :sex, with: "male"
 
     click_button "Create Pet"
 
