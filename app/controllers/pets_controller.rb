@@ -12,7 +12,7 @@ class PetsController < ApplicationController
   end
 
   def create
-    pet = Pet.new({
+    Pet.create({
       image: params[:image],
       name: params[:name],
       description: params[:description],
@@ -20,7 +20,6 @@ class PetsController < ApplicationController
       sex: params[:sex],
       shelter_id: params[:id]
       })
-    pet.save
     redirect_to "/shelters/#{params[:id]}/pets"
   end
 
@@ -30,20 +29,19 @@ class PetsController < ApplicationController
 
   def update
     pet = Pet.find(params[:id])
-    pet.update!({
-      image: params[:image],
-      name: params[:name],
-      description: params[:description],
-      approximate_age: params[:approximate_age],
-      sex: params[:sex],
-      shelter_id: pet.shelter.id
-      })
+    pet.update!(pet_params)
     redirect_to "/pets/#{pet.id}"
   end
 
   def destroy
     Pet.destroy(params[:id])
     redirect_to '/pets'
+  end
+
+  private
+
+  def pet_params
+    params.permit(:image, :name, :description, :approximate_age, :sex, :id)
   end
 
 end
