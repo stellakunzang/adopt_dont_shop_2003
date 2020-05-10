@@ -10,7 +10,8 @@
     <%= label_tag(:approximate_age, "Approximate Age: ") %>
     <%= text_field_tag(:approximate_age) %><br />
     <%= label_tag(:sex, "Sex: ") %>
-    <%= text_field_tag(:sex) %><br />
+    <%= select_tag(:sex, options_for_select(["Male", "Female"])) %><br />
+    <br>
     <%= submit_tag("Create Pet") %>
   <% end %>
 </section>
